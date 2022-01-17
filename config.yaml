@@ -12,3 +12,4 @@ version : hg38
 
 PERCENT: 0.2
 ACCURACY: 0.0001
+FRACTION: 0.1

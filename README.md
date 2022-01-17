@@ -3,7 +3,7 @@
 
 Author: Sherine Awad 
 
-A snakemake pipeline for Downsampling Effect and Variant Calling
+A snakemake pipeline for Downsampling Strategies 
 =======================================================================================
 
 
