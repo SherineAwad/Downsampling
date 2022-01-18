@@ -6,6 +6,11 @@ Author: Sherine Awad
 A snakemake pipeline for Downsampling Strategies 
 =======================================================================================
 
+Dropping reads is not as simple as discarding lines in a SAM file at random using unix commands. 
+As in the paired short-read sequencing technology, reads come in pairs. If we drop reads line by line, we risk dropping a read and keeping its mate, and vice versa.
+In addition to the issues of supplementary and secondary alignments. 
+I here are different strategies of downsampling. 
+
 
 Change the config.yaml file appropriately according to your data. 
 Update samples.tsv to include your samples. You can edit config file to change this name.  
