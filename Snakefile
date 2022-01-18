@@ -10,7 +10,7 @@ rule all:
           expand("{sample}.downsampled.bam", sample=SAMPLES),
           expand("{sample}.chained.bam", sample=SAMPLES),
           expand("{sample}.highaccuracy.bam", sample=SAMPLES),
-          expand("{sample}.posbased.bam", sample=SAMPLES) 
+          expand("{sample}.posbased.bam", sample=SAMPLES)
 
 rule downsampled:
      input:
@@ -21,7 +21,7 @@ rule downsampled:
        percent = config['PERCENT'],
      shell:
          """
-         java -jar picard.jar DownsampleSam  I={input} O={output} STRATEGY=Chained P={params.percent}
+         picard DownsampleSam  I={input} O={output} STRATEGY=Chained P={params.percent}
          """
 
 rule chained: 
@@ -34,7 +34,7 @@ rule chained:
        accuracy = config['ACCURACY']
      shell:
          """
-         java -jar picard.jar DownsampleSam  I={input} O={output} STRATEGY=Chained P={params.percent} ACCURACY={params.accuracy}
+         picard DownsampleSam  I={input} O={output} STRATEGY=Chained P={params.percent} ACCURACY={params.accuracy}
          """
 
 rule highAccuracy: 
@@ -47,7 +47,7 @@ rule highAccuracy:
        accuracy = config['ACCURACY']
      shell:
        """
-       java -jar picard.jar DownsampleSam I={input} O={output} STRATEGY=HighAccuracy P={params.percent} ACCURACY={params.accuracy}  
+       picard DownsampleSam I={input} O={output} STRATEGY=HighAccuracy P={params.percent} ACCURACY={params.accuracy}  
        """ 
 
 rule PosBased:
@@ -59,5 +59,6 @@ rule PosBased:
        fraction = config['FRACTION']
      shell: 
         """
-        java -jar picard.jar PositionBasedDownsampleSam I={input} O={output} FRACTION={params.fraction}
+        picard PositionBasedDownsampleSam I={input} O={output} FRACTION={params.fraction}
         """ 
+
